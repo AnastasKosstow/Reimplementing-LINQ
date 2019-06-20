@@ -23,6 +23,21 @@ namespace LINQ_ExpressionTrees
                     yield return item;
         }
 
+        public static IEnumerable<TResult> Zip<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first, IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> result)
+        {
+            if (first is null) throw new ArgumentNullException("first collection");
+            if (second is null) throw new ArgumentNullException("second collection");
+
+            using (IEnumerator<TFirst> firstEnumerator = first.GetEnumerator())
+            {
+                using (IEnumerator<TSecond> secondEnumerator = second.GetEnumerator())
+                {
+                    while (firstEnumerator.MoveNext() && secondEnumerator.MoveNext())
+                        yield return result(firstEnumerator.Current, secondEnumerator.Current);
+                }
+            }
+        }
+
         public static int Count<TSource>(this IEnumerable<TSource> source)
         {
             // Can be simplified by using foreach instead of Enumerator

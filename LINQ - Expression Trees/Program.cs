@@ -12,7 +12,7 @@ namespace LINQ_ExpressionTrees
 
             var transformed = list
                 .Select(x => int.Parse(x))
-                .Where(x => x % 2 == 0);
+                .Where(x => x % 2 != 0);
 
 
             // Print result
