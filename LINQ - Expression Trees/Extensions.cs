@@ -38,6 +38,17 @@ namespace LINQ_ExpressionTrees
             }
         }
 
+        public static IEnumerable<TSource> Union<TSource>(this IEnumerable<TSource> source, IEnumerable<TSource> second)
+        {
+            // IEqualityComparer<TSource> comparer
+
+            if (source is null) throw new ArgumentNullException("source");
+            if (second is null) throw new ArgumentNullException("second");
+
+            foreach (var item in source) yield return item;
+            foreach (var item in second) yield return item;
+        }
+
         public static int Count<TSource>(this IEnumerable<TSource> source)
         {
             // Can be simplified by using foreach instead of Enumerator
