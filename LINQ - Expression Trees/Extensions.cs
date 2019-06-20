@@ -22,5 +22,22 @@ namespace LINQ_ExpressionTrees
                 if (func(item))
                     yield return item;
         }
+
+        public static int Count<TSource>(this IEnumerable<TSource> source)
+        {
+            // Can be simplified by using foreach instead of Enumerator
+            // foreach (var item in source) count++;
+
+            int count = 0;
+            using (IEnumerator<TSource> enumerator = source.GetEnumerator())
+            {
+                checked
+                {
+                    while (enumerator.MoveNext())
+                        count++;
+                }
+            }
+            return count;
+        }
     }
 }

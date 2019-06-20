@@ -16,7 +16,8 @@ namespace LINQ_ExpressionTrees
 
 
             // Print result
-            Console.WriteLine(string.Join(" ", transformed));
+            Console.WriteLine(
+                string.Join(" ", transformed) + "\n" + transformed.Count());
         }
     }
 }
