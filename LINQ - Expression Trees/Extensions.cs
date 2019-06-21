@@ -95,5 +95,15 @@ namespace LINQ_ExpressionTrees
             }
             return count;
         }
+
+        public static List<TSource> ToList<TSource>(this IEnumerable<TSource> source)
+        {
+            var list = new List<TSource>();
+
+            foreach (var item in source)
+                list.Add(item);
+
+            return list;
+        }
     }
 }
