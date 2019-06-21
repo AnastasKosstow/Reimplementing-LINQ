@@ -4,7 +4,7 @@ namespace LINQ_ExpressionTrees
     using System;
     using System.Collections.Generic;
 
-    public static class Extensions
+    public static partial class Extensions
     {
         public static IEnumerable<TResult> Select<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TResult> func)
         {
@@ -98,12 +98,32 @@ namespace LINQ_ExpressionTrees
 
         public static List<TSource> ToList<TSource>(this IEnumerable<TSource> source)
         {
+            if (source is null) throw new ArgumentNullException("source");
+
             var list = new List<TSource>();
 
             foreach (var item in source)
                 list.Add(item);
 
             return list;
+        }
+
+        public static TSource[] ToArray<TSource>(this IEnumerable<TSource> source)
+        {
+            if (source is null) throw new ArgumentNullException("source");
+
+            int size = source.Count();
+            var array = new TSource[size];
+
+            using (IEnumerator<TSource> enumerator = source.GetEnumerator())
+            {
+                for (int index = 0; index < array.Length; index++)
+                {
+                    enumerator.MoveNext();
+                    array[index] = enumerator.Current;
+                }
+            }
+            return array;
         }
     }
 }

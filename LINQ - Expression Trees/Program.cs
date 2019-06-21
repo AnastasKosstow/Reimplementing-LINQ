@@ -13,13 +13,15 @@ namespace LINQ_ExpressionTrees
 
             var transformed = list
                 .Select(x => int.Parse(x))
-                .Where(x => x % 2 == 10);
+                .Where(x => x % 2 == 0);
 
-            var collection = transformed.Union(secondCollection);
+            var union = transformed.Union(secondCollection);
+            var sorted = transformed.Sort();
+
 
             // Print result
             Console.WriteLine(
-            string.Join(" ", transformed) + "\n" + transformed.Count());
+            string.Join(" ", transformed) + "\n" + transformed.Count() + "\n" + "Sorted: " + string.Join(" ", sorted));
         }
     }
 }
