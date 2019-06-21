@@ -49,6 +49,36 @@ namespace LINQ_ExpressionTrees
             foreach (var item in second) yield return item;
         }
 
+        public static IEnumerable<TSource> Take<TSource>(this IEnumerable<TSource> source, int take)
+        {
+            if (source is null) throw new ArgumentNullException("source");
+
+            using (IEnumerator<TSource> enumerator = source.GetEnumerator())
+            {
+                while (take > 0 && enumerator.MoveNext())
+                {
+                    yield return enumerator.Current;
+                    take--;
+                }
+            }
+        }
+
+        public static IEnumerable<TSource> Skip<TSource>(this IEnumerable<TSource> source, int skip)
+        {
+            if (source is null) throw new ArgumentNullException("source");
+
+            using (IEnumerator<TSource> enumerator = source.GetEnumerator())
+            {
+                while (skip > 0)
+                {
+                    skip--;
+                    enumerator.MoveNext();
+                }
+
+                while (enumerator.MoveNext()) yield return enumerator.Current;
+            }
+        }
+
         public static int Count<TSource>(this IEnumerable<TSource> source)
         {
             // Can be simplified by using foreach instead of Enumerator
