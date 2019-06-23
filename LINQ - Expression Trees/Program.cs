@@ -1,5 +1,5 @@
 ﻿
-namespace LINQ_ExpressionTrees
+namespace LINQ
 {
     using System;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace LINQ_ExpressionTrees
 
             var transformed = list
                 .Select(x => int.Parse(x))
-                .Where(x => x % 2 == 0);
+                .Where(x => x < 11);
 
             var union = transformed.Union(secondCollection);
             var sorted = transformed.Sort();

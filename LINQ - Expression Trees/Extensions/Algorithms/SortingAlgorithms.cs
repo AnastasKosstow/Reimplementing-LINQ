@@ -1,5 +1,5 @@
 ﻿
-namespace LINQ_ExpressionTrees
+namespace LINQ
 {
     using System;
     using System.Collections.Generic;

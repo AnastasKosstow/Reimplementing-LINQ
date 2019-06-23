@@ -1,5 +1,5 @@
 ﻿
-namespace LINQ_ExpressionTrees
+namespace LINQ
 {
     using System;
     using System.Collections.Generic;
@@ -12,15 +12,6 @@ namespace LINQ_ExpressionTrees
 
             foreach (var item in source)
                 yield return func(item);
-        }
-
-        public static IEnumerable<TSource> Where<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> func)
-        {
-            if (source is null) throw new ArgumentNullException("source");
-
-            foreach (var item in source)
-                if (func(item))
-                    yield return item;
         }
 
         public static IEnumerable<TResult> Zip<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first, IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> result)
