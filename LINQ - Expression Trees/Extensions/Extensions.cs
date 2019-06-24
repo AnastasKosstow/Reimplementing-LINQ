@@ -6,14 +6,6 @@ namespace LINQ
 
     public static partial class Extensions
     {
-        public static IEnumerable<TResult> Select<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TResult> func)
-        {
-            if (source is null) throw new ArgumentNullException("source");
-
-            foreach (var item in source)
-                yield return func(item);
-        }
-
         public static IEnumerable<TResult> Zip<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first, IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> result)
         {
             if (first is null) throw new ArgumentNullException("first collection");
