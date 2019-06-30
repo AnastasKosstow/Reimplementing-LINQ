@@ -13,7 +13,7 @@ namespace LINQ
 
             var transformed = list
                 .Select(x => int.Parse(x))
-                .Where(x => x < 11);
+                .Where(x => x > 0);
 
             var union = transformed.Union(secondCollection);
             var sorted = transformed.Sort();
@@ -25,6 +25,4 @@ namespace LINQ
         }
     }
 }
-
-
 

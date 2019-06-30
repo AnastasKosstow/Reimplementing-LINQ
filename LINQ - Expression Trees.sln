@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQ - Expression Trees", "LINQ - Expression Trees\LINQ - Expression Trees.csproj", "{E30258E0-7557-4845-AF33-B6BD618DA6C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQ", "LINQ - Expression Trees\LINQ.csproj", "{E30258E0-7557-4845-AF33-B6BD618DA6C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_Tests", "LINQ_Tests\LINQ_Tests.csproj", "{D15837F3-D40D-41C0-ADEF-0656CA9FF482}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expression Trees", "Expression Trees\Expression Trees.csproj", "{DBE293AB-03A3-4532-A2E9-C22FF319A190}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D15837F3-D40D-41C0-ADEF-0656CA9FF482}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D15837F3-D40D-41C0-ADEF-0656CA9FF482}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D15837F3-D40D-41C0-ADEF-0656CA9FF482}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE293AB-03A3-4532-A2E9-C22FF319A190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE293AB-03A3-4532-A2E9-C22FF319A190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE293AB-03A3-4532-A2E9-C22FF319A190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE293AB-03A3-4532-A2E9-C22FF319A190}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

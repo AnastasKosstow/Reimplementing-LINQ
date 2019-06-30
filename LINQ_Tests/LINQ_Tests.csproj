@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LINQ - Expression Trees\LINQ - Expression Trees.csproj" />
+    <ProjectReference Include="..\LINQ - Expression Trees\LINQ.csproj" />
   </ItemGroup>
 
 </Project>
