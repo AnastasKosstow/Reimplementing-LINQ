@@ -5,7 +5,7 @@ namespace Expression_Trees
     {
         static void Main()
         {
-            ParsingExpressions.ParseExpressions();
+            // ParsingExpressions.ParseExpressions();
             CreatingExpressions.CreateExpressions();
         }
     }

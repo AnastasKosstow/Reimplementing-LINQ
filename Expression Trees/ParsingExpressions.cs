@@ -10,7 +10,20 @@ namespace Expression_Trees
         {
             return "Telerik Academy!";
         }
+
+        public string OtherMethod(string left, AnotherClass right)
+        {
+            // return "Telerik Academy!";
+            return $"{left} {right.StringValue}!";
+        }
     }
+
+    public class AnotherClass
+    {
+        public string StringValue { get; set; }
+    }
+
+    /*------------------------------------------------------------------------------------*/
 
     public class ExpClass
     {
