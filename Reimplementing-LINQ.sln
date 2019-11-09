@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{F76F454E-F903-4558-B9C1-7B8209E65FD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_Tests", "LINQ_Tests\LINQ_Tests.csproj", "{971D8B34-90CD-4ABF-8C82-44142316D6C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F76F454E-F903-4558-B9C1-7B8209E65FD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76F454E-F903-4558-B9C1-7B8209E65FD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F76F454E-F903-4558-B9C1-7B8209E65FD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76F454E-F903-4558-B9C1-7B8209E65FD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971D8B34-90CD-4ABF-8C82-44142316D6C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971D8B34-90CD-4ABF-8C82-44142316D6C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971D8B34-90CD-4ABF-8C82-44142316D6C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971D8B34-90CD-4ABF-8C82-44142316D6C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3DB7095-99A0-45C6-854A-2EAC1203DFB3}
+	EndGlobalSection
+EndGlobal

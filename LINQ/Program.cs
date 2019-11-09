@@ -4,7 +4,7 @@ namespace LINQ
     using System;
     using System.Collections.Generic;
 
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
@@ -18,11 +18,9 @@ namespace LINQ
             var union = transformed.Union(secondCollection);
             var sorted = transformed.Sort();
 
-
             // Print result
             Console.WriteLine(
             string.Join(" ", transformed) + "\n" + transformed.Count() + "\n" + "Sorted: " + string.Join(" ", sorted));
         }
     }
 }
-

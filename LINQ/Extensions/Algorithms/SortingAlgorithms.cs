@@ -6,17 +6,6 @@ namespace LINQ
 
     public static partial class Extensions
     {
-        public static IEnumerable<TSource> Sort<TSource>(this IEnumerable<TSource> source) where TSource : IComparable
-        {
-            if (source is null) throw new ArgumentNullException("source");
-
-            TSource[] array = source.ToArray();
-
-            if (source.Count() <= 20) return BubbleSort(array);
-            else return Quicksort(array, 0, array.Length - 1);
-        }
-
-
         private static IEnumerable<T> Quicksort<T>(T[] source, int left, int right) where T : IComparable
         {
             int leftIndex = left, rightIndex = right;
