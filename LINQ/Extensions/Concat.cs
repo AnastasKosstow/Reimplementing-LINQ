@@ -1,5 +1,4 @@
-﻿
-namespace LINQ
+﻿namespace LINQ
 {
     using System;
     using System.Collections.Generic;
@@ -10,16 +9,18 @@ namespace LINQ
         {
             if (first == null) throw new ArgumentNullException("first");
             if (second == null) throw new ArgumentNullException("second");
-            
-            return ConcatImpl(first, second);
-        }
-        private static IEnumerable<TSource> ConcatImpl<TSource>(IEnumerable<TSource> first, IEnumerable<TSource> second)
-        {
-            foreach (TSource item in first)
-                yield return item;
-            
-            foreach (TSource item in second)
-                yield return item;
+
+            return _(); IEnumerable<TSource> _()
+            {
+                using var enumeratorFirst = first.GetEnumerator();
+                using var enumeratorSecond = second.GetEnumerator();
+
+                while (enumeratorFirst.MoveNext())
+                    yield return enumeratorFirst.Current;
+
+                while (enumeratorSecond.MoveNext())
+                    yield return enumeratorSecond.Current;
+            }
         }
     }
 }

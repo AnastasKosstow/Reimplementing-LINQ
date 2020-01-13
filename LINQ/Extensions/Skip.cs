@@ -1,5 +1,4 @@
-﻿
-namespace LINQ
+﻿namespace LINQ
 {
     using System;
     using System.Collections.Generic;
@@ -10,16 +9,14 @@ namespace LINQ
         {
             if (source is null) throw new ArgumentNullException("source");
 
-            using (IEnumerator<TSource> enumerator = source.GetEnumerator())
-            {
-                while (skip > 0)
-                {
-                    skip--;
-                    enumerator.MoveNext();
-                }
+            using var enumerator = source.GetEnumerator();
 
-                while (enumerator.MoveNext()) yield return enumerator.Current;
+            while (skip > 0)
+            {
+                skip--;
+                enumerator.MoveNext();
             }
+            while (enumerator.MoveNext()) yield return enumerator.Current;
         }
     }
 }

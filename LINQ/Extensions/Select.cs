@@ -11,13 +11,11 @@ namespace LINQ
             if (source is null) throw new ArgumentNullException("source");
             if (func is null) throw new ArgumentNullException("func");
 
-            return SelectIterator(source, func);
-        }
-
-        public static IEnumerable<TResult> SelectIterator<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TResult> func)
-        {
-            foreach (var item in source)
-                yield return func(item);
+            return _(); IEnumerable<TResult> _()
+            {
+                foreach (var item in source)
+                    yield return func(item);
+            }
         }
     }
 }

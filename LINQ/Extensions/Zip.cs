@@ -1,5 +1,4 @@
-﻿
-namespace LINQ
+﻿namespace LINQ
 {
     using System;
     using System.Collections.Generic;
@@ -11,16 +10,13 @@ namespace LINQ
             if (first is null) throw new ArgumentNullException("first collection");
             if (second is null) throw new ArgumentNullException("second collection");
 
-            return ZipIterator(first, second, result);
-        }
-
-        public static IEnumerable<TResult> ZipIterator<TFirst, TSecond, TResult>(this IEnumerable<TFirst> first, IEnumerable<TSecond> second, Func<TFirst, TSecond, TResult> result)
-        {
-            using (IEnumerator<TFirst> firstEnumerator = first.GetEnumerator())
-            using (IEnumerator<TSecond> secondEnumerator = second.GetEnumerator())
+            return _(); IEnumerable<TResult> _()
             {
-                while (firstEnumerator.MoveNext() && secondEnumerator.MoveNext())
-                    yield return result(firstEnumerator.Current, secondEnumerator.Current);
+                using var enumeratorFirst = first.GetEnumerator();
+                using var enumeratorSecond = second.GetEnumerator();
+
+                while (enumeratorFirst.MoveNext() && enumeratorSecond.MoveNext())
+                    yield return result(enumeratorFirst.Current, enumeratorSecond.Current);
             }
         }
     }

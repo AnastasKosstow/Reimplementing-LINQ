@@ -1,5 +1,4 @@
-﻿
-namespace LINQ
+﻿namespace LINQ
 {
     using System;
     using System.Collections.Generic;
@@ -11,14 +10,16 @@ namespace LINQ
             if (source is null) throw new ArgumentNullException("source");
             if (predicate is null) throw new ArgumentNullException("predicate");
 
-            return WhereIterator(source, predicate);
-        }
+            return _(); IEnumerable<TSource> _()
+            {
+                using var enumerator = source.GetEnumerator();
 
-        public static IEnumerable<TSource> WhereIterator<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
-        {
-            foreach (var item in source)
-                if (predicate(item))
-                    yield return item;
+                while (enumerator.MoveNext())
+                    if (predicate(enumerator.Current))
+                    {
+                        yield return enumerator.Current;
+                    }
+            }
         }
     }
 }
