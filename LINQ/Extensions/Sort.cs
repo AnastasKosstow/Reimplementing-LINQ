@@ -12,8 +12,9 @@ namespace LINQ
 
             TSource[] array = source.ToArray();
 
-            if (source.Count() <= 20) return BubbleSort(array);
-            else return Quicksort(array, 0, array.Length - 1);
+            return source.Count() <= 20
+                ? BubbleSort(array)
+                : QuickSort(array, 0, array.Length - 1);
         }
     }
 }

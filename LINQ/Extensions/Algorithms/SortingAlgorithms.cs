@@ -6,7 +6,7 @@ namespace LINQ
 
     public static partial class Extensions
     {
-        private static IEnumerable<T> Quicksort<T>(T[] source, int left, int right) where T : IComparable
+        private static IEnumerable<T> QuickSort<T>(T[] source, int left, int right) where T : IComparable
         {
             int leftIndex = left, rightIndex = right;
             T pivot = source[(left + right) / 2];
