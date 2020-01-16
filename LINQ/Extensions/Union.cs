@@ -6,21 +6,22 @@ namespace LINQ
 
     public static partial class Extensions
     {
-        public static IEnumerable<TSource> Union<TSource>(this IEnumerable<TSource> first, IEnumerable<TSource> second)
+        public static IEnumerable<TSource> Union<TSource>(this IEnumerable<TSource> first, IEnumerable<TSource> second,
+                                                               IEqualityComparer<TSource> comparer = null)
         {
             if (first == null) throw new ArgumentNullException("first");
             if (second == null) throw new ArgumentNullException("second");
 
             return _(); IEnumerable<TSource> _()
             {
-                using var enumeratorFirst = first.GetEnumerator();
-                using var enumeratorSecond = second.GetEnumerator();
+                if (comparer is null) comparer = EqualityComparer<TSource>.Default;
+                ISet<TSource> set = new HashSet<TSource>(comparer);
 
-                while (enumeratorFirst.MoveNext())
-                    yield return enumeratorFirst.Current;
+                foreach (var item in first)
+                    if (set.Add(item)) yield return item;
 
-                while (enumeratorSecond.MoveNext())
-                    yield return enumeratorSecond.Current;
+                foreach (var item in second)
+                    if (set.Add(item)) yield return item;
             }
         }
     }
